@@ -31,7 +31,7 @@ internal sealed class BackupService
                 sourceDirectory.CopyTo(_outputDirectory, (file, exception) =>
                 {
                     Log.Error("Unable to copy {File}: {Error}", file.FullName, exception.Message);
-                    Log.Information("Do you want to skip this file? {Yes} / {No}", "[Y]es", "[N]o");
+                    Log.Error("Do you want to skip this file? {Yes} / {No}", "[Y]es", "[N]o");
                     status = CompletionStatus.DoneWithErrors;
                     return Input() == "y";
                 });
