@@ -49,6 +49,7 @@ internal static class Functions
             "Debug" => DefaultConfiguration()
                        .MinimumLevel.Debug()
                        .CreateLogger(),
+            "" => DefaultConfiguration().CreateLogger(),
             _       => throw new ArgumentException($"Unable to find {configuration.LogLevel} log level")
         };
 }
