@@ -23,5 +23,7 @@ internal sealed class BackupOutputDirectory
         return new(outerDirectory);
     }
 
+    public void Delete() => Directory.Delete(OuterDirectory, true);
+
     public static implicit operator string(BackupOutputDirectory directory) => directory.OuterDirectory;
 }
