@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1C22565D-EACC-4CCC-ADFD-426E7875265B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "items", "items", "{78F7B9AE-2AA3-4D78-A5E8-0B9A23616EB4}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackupTool", "src\BackupTool\BackupTool.csproj", "{D8A950C3-39D9-463F-8E25-99A271421D56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D8A950C3-39D9-463F-8E25-99A271421D56} = {1C22565D-EACC-4CCC-ADFD-426E7875265B}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8A950C3-39D9-463F-8E25-99A271421D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8A950C3-39D9-463F-8E25-99A271421D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8A950C3-39D9-463F-8E25-99A271421D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8A950C3-39D9-463F-8E25-99A271421D56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
