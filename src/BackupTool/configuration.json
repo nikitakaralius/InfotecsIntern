@@ -1,7 +1,8 @@
 {
-  "sourceDirectories": [
-
+  "SourceDirectories": [
+    "/Users/nikitakaralus/Repositories/Workspace/Source",
+    "/Users/nikitakaralus/Repositories/Workspace/Workspace"
   ],
-  "outputDirectory": "",
-  "logLevel": ""
+  "OutputDirectory": "/Users/nikitakaralus/Repositories/Workspace/SourceNew",
+  "LogLevel": "Debug"
 }
