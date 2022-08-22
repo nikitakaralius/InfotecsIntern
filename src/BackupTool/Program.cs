@@ -10,7 +10,7 @@ try
 {
     var appConfiguration = await configuration.LoadAsync<AppConfiguration>();
     var sourceDirectories = MapSourceDirectories(from: appConfiguration);
-    var outputDirectory = BackupOutputDirectory.FromString(
+    var outputDirectory = BackupOutputDirectory.Create(
         appConfiguration.OutputDirectory, directory =>
         {
             Log.Error("Directory {Directory} can not be found. Do you want to create a new one?\n" +

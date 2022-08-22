@@ -6,7 +6,7 @@ internal sealed class BackupOutputDirectory
 
     private BackupOutputDirectory(string outerDirectory) => OuterDirectory = outerDirectory;
 
-    public static BackupOutputDirectory FromString(string outerDirectory, Func<string, bool>? createIfNotFound = null)
+    public static BackupOutputDirectory Create(string outerDirectory, Func<string, bool>? createIfNotFound = null)
     {
         if (Directory.Exists(outerDirectory) == false)
         {
