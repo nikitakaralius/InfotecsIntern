@@ -12,7 +12,7 @@ internal sealed class BackupSourceDirectory
     {
         if (Directory.Exists(path) == false)
         {
-            throw new DirectoryNotFoundException($"Source directory {path} doest not exist");
+            throw new DirectoryNotFoundException($"Source directory {path} does not exist");
         }
 
         return new BackupSourceDirectory(path);

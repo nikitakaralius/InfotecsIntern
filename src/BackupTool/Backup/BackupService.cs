@@ -20,6 +20,8 @@ internal sealed class BackupService
 
     public CompletionStatus Execute()
     {
+        Log.Debug("Starting backup...");
+
         var status = CompletionStatus.Success;
 
         foreach (var sourceDirectory in _sourceDirectories)

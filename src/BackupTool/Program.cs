@@ -15,9 +15,11 @@ try
         {
             Log.Error("Directory {Directory} can not be found. Do you want to create a new one?\n" +
                       "{Yes} / {No}", directory, "[Y]es", "[N]o");
-            string input = Console.ReadLine()!.ToLower();
-            return input == "y";
+            return Input() == "y";
         });
+    var service = new BackupService(sourceDirectories, outputDirectory);
+    var completionStatus = service.Execute();
+    Log.Information("Backup completed with status: {Status}", completionStatus.ToString());
 }
 catch (Exception e)
 {

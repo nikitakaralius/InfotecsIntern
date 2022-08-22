@@ -16,7 +16,7 @@ internal sealed class BackupOutputDirectory
             }
             else
             {
-                throw new DirectoryNotFoundException($"Output directory {outerDirectory} doest not exist");
+                throw new DirectoryNotFoundException($"Output directory {outerDirectory} does not exist");
             }
         }
 
