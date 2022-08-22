@@ -6,15 +6,20 @@ string configurationPath = EnsureCorrectPath(firstLookAt: "./configuration.json"
 
 IConfiguration configuration = new JsonConfiguration(configurationPath);
 
-AppConfiguration appConfiguration;
-
 try
 {
-    appConfiguration = await configuration.LoadAsync<AppConfiguration>();
+    var appConfiguration = await configuration.LoadAsync<AppConfiguration>();
+    var sourceDirectories = MapSourceDirectories(from: appConfiguration);
+    var outputDirectory = BackupOutputDirectory.FromString(
+        appConfiguration.OutputDirectory, directory =>
+        {
+            Log.Error("Directory {Directory} can not be found. Do you want to create a new one?\n" +
+                      "{Yes} / {No}", directory, "[Y]es", "[N]o");
+            string input = Console.ReadLine()!.ToLower();
+            return input == "y";
+        });
 }
 catch (Exception e)
 {
-    Log.Error("Unable to load configuration: {Error}", e.Message);
-    return;
+    Log.Error("{Error}", e.Message);
 }
-
