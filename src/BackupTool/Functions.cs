@@ -26,7 +26,7 @@ internal static class Functions
         return path;
     }
 
-    public static BackupSourceDirectory[] MapDirectories(AppConfiguration from) =>
+    public static BackupSourceDirectory[] MapSourceDirectories(AppConfiguration from) =>
         from.SourceDirectories
                      .Select(x => BackupSourceDirectory.FromString(x))
                      .ToArray();
