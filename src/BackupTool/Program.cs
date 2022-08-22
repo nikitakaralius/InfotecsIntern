@@ -1,6 +1,4 @@
-﻿Log.Logger = new LoggerConfiguration()
-             .WriteTo.Console()
-             .CreateLogger();
+﻿Log.Logger = DefaultConfiguration().CreateLogger();
 
 string configurationPath = EnsureCorrectPath(firstLookAt: "./configuration.json");
 
@@ -9,6 +7,8 @@ IConfiguration configuration = new JsonConfiguration(configurationPath);
 try
 {
     var appConfiguration = await configuration.LoadAsync<AppConfiguration>();
+
+    Log.Logger = CreateLoggerFrom(appConfiguration);
 
     var sourceDirectories = MapSourceDirectories(from: appConfiguration);
     var outputDirectory = BackupOutputDirectory.Create(

@@ -32,4 +32,23 @@ internal static class Functions
         from.SourceDirectories
                      .Select(x => BackupSourceDirectory.FromString(x))
                      .ToArray();
+
+    public static LoggerConfiguration DefaultConfiguration() =>
+        new LoggerConfiguration()
+            .WriteTo.Console();
+
+    public static ILogger CreateLoggerFrom(AppConfiguration configuration) =>
+        configuration.LogLevel switch
+        {
+            "Error" => DefaultConfiguration()
+                       .MinimumLevel.Error()
+                       .CreateLogger(),
+            "Info"  => DefaultConfiguration()
+                       .MinimumLevel.Information()
+                       .CreateLogger(),
+            "Debug" => DefaultConfiguration()
+                       .MinimumLevel.Debug()
+                       .CreateLogger(),
+            _       => throw new ArgumentException($"Unable to find {configuration.LogLevel} log level")
+        };
 }
