@@ -2,6 +2,8 @@ namespace BackupTool;
 
 internal static class Functions
 {
+    public static string Input() => Console.ReadLine()!.ToLower();
+
     public static string EnsureCorrectPath(params string[] firstLookAt)
     {
         if (firstLookAt.Length == 0)
