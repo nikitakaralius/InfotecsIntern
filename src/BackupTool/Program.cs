@@ -9,6 +9,7 @@ IConfiguration configuration = new JsonConfiguration(configurationPath);
 try
 {
     var appConfiguration = await configuration.LoadAsync<AppConfiguration>();
+
     var sourceDirectories = MapSourceDirectories(from: appConfiguration);
     var outputDirectory = BackupOutputDirectory.Create(
         appConfiguration.OutputDirectory, directory =>
@@ -17,8 +18,10 @@ try
                       "{Yes} / {No}", directory, "[Y]es", "[N]o");
             return Input() == "y";
         });
+
     var service = new BackupService(sourceDirectories, outputDirectory);
     var completionStatus = service.Execute();
+
     Log.Information("Backup completed with status: {Status}", completionStatus.ToString());
 }
 catch (Exception e)
