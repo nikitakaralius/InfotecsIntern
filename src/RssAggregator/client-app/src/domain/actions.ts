@@ -15,7 +15,7 @@ export type connectToProxy = (proxy: IProxy) => ConnectionStatus;
 
 export type resetProxy = () => ConnectionStatus;
 
-export type fetchFeed = (source: FeedSource, proxy: IProxy | null) => SortedFeed;
+export type fetchFeed = (source: FeedSource, proxy: IProxy | null) => Promise<SortedFeed>;
 
 export type appendFeedStream = (stream: INewFeedStream) => FeedSource;
 
