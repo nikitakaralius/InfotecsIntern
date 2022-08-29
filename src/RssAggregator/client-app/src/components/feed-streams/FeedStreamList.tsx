@@ -7,8 +7,10 @@ interface IFeedStreamListProps {
 
 const FeedStreamList = (props: IFeedStreamListProps) => {
   return (
-    <div className={styles.container}>
-      FeedStreamList
+    <div>
+      <div className={styles.container}>
+        FeedStreamList
+      </div>
     </div>
   );
 };
