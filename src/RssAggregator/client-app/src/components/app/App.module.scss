@@ -1,0 +1,8 @@
+.grid {
+  display: grid;
+  grid-template-areas:
+  "header header"
+  "feed feedStreamList";
+  grid-template-columns: 8fr 4fr;
+  grid-template-rows: 300px 1fr;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Header.module.scss';
 
 interface IHeaderProps {
 
@@ -6,7 +7,7 @@ interface IHeaderProps {
 
 const Header = (props: IHeaderProps) => {
   return (
-    <div>
+    <div className={styles.container}>
       Header
     </div>
   );
