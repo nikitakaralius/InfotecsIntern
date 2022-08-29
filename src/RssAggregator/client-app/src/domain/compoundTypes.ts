@@ -7,12 +7,14 @@ export interface IFeedItem {
   pubDate: Date;
 }
 
-export interface IFeed {
+export interface IFeedStream {
   title: String50;
   link: URL;
 }
 
-export type SortedFeedStream = IFeedItem[];
+export type SortedFeed = IFeedItem[];
+
+export type FeedSource = IFeedStream[];
 
 export interface IProxy {
   host: URL;
@@ -23,6 +25,6 @@ export interface IProxy {
 
 export type ConnectionStatus = 'Success' | 'Failure';
 
-export type fetchFeed = (feed: IFeed, proxy: IProxy | null) => SortedFeedStream;
+export type fetchFeed = (source: FeedSource, proxy: IProxy | null) => SortedFeed;
 
 export type connectToProxy = (proxy: IProxy) => ConnectionStatus;
