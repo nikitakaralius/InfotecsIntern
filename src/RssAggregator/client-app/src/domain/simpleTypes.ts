@@ -26,3 +26,5 @@ export class String100 {
     return createClamped<String100>(content, 100, c => new String100(c));
   }
 }
+
+export type ConnectionStatus = 'Success' | 'Failure';

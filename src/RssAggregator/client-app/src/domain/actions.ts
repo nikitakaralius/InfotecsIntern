@@ -1,5 +1,4 @@
 import {
-  ConnectionStatus,
   FeedSource,
   IActiveFeedStream, IFeedStream,
   IInactiveFeedStream,
@@ -7,6 +6,10 @@ import {
   IProxy,
   SortedFeed
 } from './compoundTypes';
+
+import {
+  ConnectionStatus
+} from './simpleTypes';
 
 export type connectToProxy = (proxy: IProxy) => ConnectionStatus;
 

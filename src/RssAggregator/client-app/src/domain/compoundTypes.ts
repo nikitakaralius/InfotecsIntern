@@ -33,5 +33,3 @@ export interface IProxy {
   username: string;
   password: string;
 }
-
-export type ConnectionStatus = 'Success' | 'Failure';
