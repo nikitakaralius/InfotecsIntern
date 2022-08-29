@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from './components/header/Header';
-import Feed from './components/feed/Feed';
-import FeedStreamList from './components/feed-streams/FeedStreamList';
-import './index.css';
+import Header from '../header/Header';
+import Feed from '../feed/Feed';
+import FeedStreamList from '../feed-streams/FeedStreamList';
 
 const App = () => {
   return (
