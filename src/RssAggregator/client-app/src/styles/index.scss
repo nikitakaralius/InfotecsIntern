@@ -1,1 +1,14 @@
 @import '~normalize.css';
+@import './variables.scss';
+
+body {
+  background: $background;
+  color: $title;
+  font-family: 'Virgil', sans-serif;
+}
+
+@font-face {
+  font-family: "Virgil";
+  src: url("https://virgil.excalidraw.com/Virgil.woff2");
+  font-display: swap;
+}
