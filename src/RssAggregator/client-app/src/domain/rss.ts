@@ -1,23 +1,23 @@
 import {FetchFeed} from './actions';
-import {IFeedItem} from './compoundTypes';
-import {FetchError} from './simpleTypes';
-import {parseRss} from './parser';
+import {IActiveFeedStream, IFeedItem, INewFeedStream} from './compoundTypes';
+import {FetchError, String100} from './simpleTypes';
+import {parseFeed, parseStream} from './parser';
 import axios from 'axios';
 
 const bypassCorsProxy = (target: URL) => {
   return `https://thingproxy.freeboard.io/fetch/${target.href}`;
 };
 
-export const fetchFeed: FetchFeed = async (source, proxy) => {
+const fetchFeed: FetchFeed = async (source, proxy) => {
   let feed: IFeedItem[] = [];
   let error: FetchError = null;
   try {
     for (let stream of source) {
-      const url = bypassCorsProxy(stream.link)
+      const url = bypassCorsProxy(stream.link);
       const response = await axios.get(url, {
         proxy: proxy !== null ? proxy : false
       });
-      const items = parseRss(response.data);
+      const items = parseFeed(response.data);
       feed = [...feed, ...items];
     }
   } catch (e) {
@@ -26,3 +26,16 @@ export const fetchFeed: FetchFeed = async (source, proxy) => {
 
   return [feed, error];
 };
+
+const fetchStream = async (stream: INewFeedStream): Promise<IActiveFeedStream> => {
+  const response = await axios.get(stream.link.href);
+  const title = parseStream(response.data);
+  return {
+    title: String100.createClamped(title),
+    link: stream.link,
+    active: true
+  };
+
+};
+
+export {fetchFeed, fetchStream};
