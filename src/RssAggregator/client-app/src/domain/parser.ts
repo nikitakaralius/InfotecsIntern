@@ -1,5 +1,5 @@
 import {IFeedItem} from './compoundTypes';
-import {String100, String50} from './simpleTypes';
+import {String100, String80} from './simpleTypes';
 
 const mapItem: (item: Element) => IFeedItem = (item) => {
   const title = item.querySelector('title')!.textContent!;
@@ -8,7 +8,7 @@ const mapItem: (item: Element) => IFeedItem = (item) => {
   const link = item.querySelector('link')!.textContent!;
 
   return {
-    title: String50.createClamped(title),
+    title: String80.createClamped(title),
     description: String100.createClamped(description),
     link: new URL(link),
     pubDate: new Date(pubDate)
