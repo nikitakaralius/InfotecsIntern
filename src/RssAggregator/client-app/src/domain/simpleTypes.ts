@@ -34,4 +34,4 @@ export interface NetworkError {
   message: unknown;
 }
 
-export type FetchError = null | NetworkError | 'Unknown RSS dialect';
+export type FetchError = unknown | null;
