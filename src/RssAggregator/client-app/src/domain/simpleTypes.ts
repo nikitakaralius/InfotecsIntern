@@ -30,8 +30,4 @@ export class String100 {
 
 export type ConnectionStatus = 'Success' | 'Failure';
 
-export interface NetworkError {
-  message: unknown;
-}
-
 export type FetchError = unknown | null;
