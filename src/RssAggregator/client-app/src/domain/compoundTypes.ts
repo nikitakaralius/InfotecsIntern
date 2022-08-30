@@ -1,19 +1,22 @@
-import {String50, String100} from './simpleTypes';
+import {String80, String100} from './simpleTypes';
 
 export interface IFeedItem {
-  title: String50;
+  title: String80;
   description: String100;
   link: URL;
   pubDate: Date;
 }
 
+export const feedItemCmp = (x: IFeedItem, y: IFeedItem) =>
+  x.pubDate.getTime() - y.pubDate.getTime();
+
 export interface IActiveFeedStream {
-  title: String50;
+  title: String80;
   link: URL;
 }
 
 export interface IInactiveFeedStream {
-  title: String50;
+  title: String80;
   link: URL;
 }
 
