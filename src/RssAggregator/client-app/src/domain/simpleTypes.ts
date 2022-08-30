@@ -28,4 +28,4 @@ class String250 {
   }
 }
 
-export {createClamped};
+export {String100, String250};
