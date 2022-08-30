@@ -1,22 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './Feed.module.scss';
-import {FetchFeed} from '../../domain/actions';
-import {FeedSource, IProxy, SortedFeed} from '../../domain/compoundTypes';
+import {FeedSource, IProxy} from '../../domain/compoundTypes';
 import FeedItem from '../feed-item/FeedItem';
+import {useFeed} from '../../hooks/domain';
 
 interface IFeedProps {
   feedSource: FeedSource;
-  fetchFeed: FetchFeed;
   proxy: IProxy | null;
 }
 
-const Feed = ({feedSource, fetchFeed, proxy}: IFeedProps) => {
-  const [feed, setFeed] = useState<SortedFeed>([]);
+const Feed = ({feedSource, proxy}: IFeedProps) => {
+  const [feed, error] = useFeed(feedSource, proxy);
 
-  useEffect(() => {
-    fetchFeed(feedSource, proxy)
-      .then(f => setFeed(f));
-  }, []);
+  if (error) {
+    console.log(error);
+  }
 
   return (
     <div className={styles.container}>
