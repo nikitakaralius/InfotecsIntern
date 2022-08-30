@@ -31,8 +31,11 @@ export type SortedFeed = IFeedItem[];
 export type FeedSource = IActiveFeedStream[];
 
 export interface IProxy {
-  host: URL;
+  host: string;
   port: number;
-  username: string;
-  password: string;
+  protocol: string;
+  auth: {
+    username: string;
+    password: string;
+  }
 }
