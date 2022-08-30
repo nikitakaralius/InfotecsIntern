@@ -2,7 +2,7 @@
 
 .container {
   grid-area: header;
-  border:solid 7px $title;
+  border: 7px solid $title;
   border-radius: $curvedBorder;
   padding: 15px;
 }
