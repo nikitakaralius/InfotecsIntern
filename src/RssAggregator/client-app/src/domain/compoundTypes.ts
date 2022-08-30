@@ -25,7 +25,7 @@ export type IFeedStream = IActiveFeedStream | IInactiveFeedStream;
 
 export type SortedFeed = IFeedItem[];
 
-export type FeedSource = IFeedStream[];
+export type FeedSource = IActiveFeedStream[];
 
 export interface IProxy {
   host: URL;

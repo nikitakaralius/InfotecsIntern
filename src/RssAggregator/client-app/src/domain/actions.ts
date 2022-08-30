@@ -1,6 +1,6 @@
 import {
   FeedSource,
-  IActiveFeedStream, IFeedStream,
+  IActiveFeedStream, IFeedItem, IFeedStream,
   IInactiveFeedStream,
   INewFeedStream,
   IProxy,
