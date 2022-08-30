@@ -35,7 +35,6 @@
     <ItemGroup>
       <Folder Include="client-app\src\domain" />
       <Folder Include="client-app\src\store" />
-      <Folder Include="client-app\src\styles" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
