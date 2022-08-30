@@ -15,9 +15,13 @@ const mapItem: (item: Element) => IFeedItem = (item) => {
   };
 };
 
-export const parseRss = (content: string) => {
+const createXmlTree = (content: string) => {
   const parser = new DOMParser();
-  const tree = parser.parseFromString(content, 'application/xml');
+  return parser.parseFromString(content, 'application/xml');
+}
+
+const parseFeed = (content: string) => {
+  const tree = createXmlTree(content);
   try {
     const channel = tree.querySelector('channel')!;
     const item = channel.querySelectorAll('item')!;
@@ -33,3 +37,16 @@ export const parseRss = (content: string) => {
     throw new Error('Unsupported rss dialect');
   }
 };
+
+const parseStream = (content: string) => {
+  const tree = createXmlTree(content);
+  try {
+    const channel = tree.querySelector('channel')!;
+    const title = channel.querySelector('title')!;
+    return title.textContent!;
+  } catch (e) {
+    throw new Error('Unsupported rss dialect');
+  }
+}
+
+export {parseFeed, parseStream}
