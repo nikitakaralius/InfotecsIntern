@@ -27,9 +27,9 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Pages\Error.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
-      <_ContentIncludedByDefault Remove="ClientApp\package-lock.json" />
-      <_ContentIncludedByDefault Remove="ClientApp\package.json" />
-      <_ContentIncludedByDefault Remove="ClientApp\public\manifest.json" />
+      <_ContentIncludedByDefault Remove="client-app\package-lock.json" />
+      <_ContentIncludedByDefault Remove="client-app\package.json" />
+      <_ContentIncludedByDefault Remove="client-app\public\manifest.json" />
     </ItemGroup>
 
     <ItemGroup>
