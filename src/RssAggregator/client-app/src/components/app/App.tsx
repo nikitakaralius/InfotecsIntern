@@ -3,12 +3,13 @@ import Header from '../header/Header';
 import Feed from '../feed/Feed';
 import FeedStreamList from '../feed-streams/FeedStreamList';
 import styles from './App.module.scss';
+import {feedSource} from '../../seedData';
 
 const App = () => {
   return (
     <div className={styles.grid}>
       <Header />
-      <Feed />
+      <Feed feedSource={feedSource} proxy={null}/>
       <FeedStreamList />
     </div>
   );
