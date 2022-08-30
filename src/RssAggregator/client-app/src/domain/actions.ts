@@ -1,6 +1,6 @@
 import {
   FeedSource,
-  IActiveFeedStream, IFeedItem, IFeedStream,
+  IActiveFeedStream, IFeedStream,
   IInactiveFeedStream,
   INewFeedStream,
   IProxy,
@@ -8,14 +8,14 @@ import {
 } from './compoundTypes';
 
 import {
-  ConnectionStatus
+  ConnectionStatus, FetchError
 } from './simpleTypes';
 
 export type ConnectToProxy = (proxy: IProxy) => ConnectionStatus;
 
 export type ResetProxy = () => ConnectionStatus;
 
-export type FetchFeed = (source: FeedSource, proxy: IProxy | null) => Promise<SortedFeed>;
+export type FetchFeed = (source: FeedSource, proxy: IProxy | null) => Promise<[SortedFeed, FetchError]>;
 
 export type AppendFeedStream = (stream: INewFeedStream) => FeedSource;
 
