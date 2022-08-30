@@ -13,11 +13,13 @@ export const feedItemCmp = (x: IFeedItem, y: IFeedItem) =>
 export interface IActiveFeedStream {
   title: String80;
   link: URL;
+  active: true;
 }
 
 export interface IInactiveFeedStream {
   title: String80;
   link: URL;
+  active: false;
 }
 
 export interface INewFeedStream {
