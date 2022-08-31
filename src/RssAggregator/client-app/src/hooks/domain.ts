@@ -16,8 +16,9 @@ const useFeed = () => {
       dispatch(fetchFeed(storage.source, proxy));
     }, updateStepSeconds * 1000)
 
-    return () => clearInterval(update);
+    dispatch(fetchFeed(storage.source, proxy));
 
+    return () => clearInterval(update);
   }, [storage.source]);
 
   return useTypedSelector(state => state.feed);
