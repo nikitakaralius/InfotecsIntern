@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+.container {
+  grid-area: header;
+  background: $accent-color;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 20px;
+  color: $primary-color;
+}

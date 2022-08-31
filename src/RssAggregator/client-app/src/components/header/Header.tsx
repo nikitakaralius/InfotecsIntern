@@ -1,9 +1,10 @@
 import React from 'react';
 import {RssForm} from './rssForm/RssForm';
+import styles from './Header.module.scss';
 
 const Header = () => {
   return (
-    <header>
+    <header className={styles.container}>
 
       <div>
         RSS Aggregator
