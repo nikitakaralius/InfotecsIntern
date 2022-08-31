@@ -43,8 +43,8 @@ type FeedStream = IEnabledFeedStream | IDisabledFeedStream;
 type FeedSource = IEnabledFeedStream[];
 
 class StreamStorage {
-  private readonly streams: FeedStream[];
-  private readonly source: IEnabledFeedStream[];
+  readonly streams: FeedStream[];
+  readonly source: IEnabledFeedStream[];
 
   private constructor(streams: FeedStream[], source: IEnabledFeedStream[]) {
     this.streams = streams;
