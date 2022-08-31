@@ -8,13 +8,16 @@ const useFeed = () => {
   const dispatch = useTypedDispatch();
 
   useEffect(() => {
-    setInterval(() => {
-      dispatch(fetchFeed(storage.source, proxy));
-    }, updateStepSeconds * 1000)
+    dispatch(fetchFeed(storage.source, proxy));
   }, []);
 
   useEffect(() => {
-    dispatch(fetchFeed(storage.source, proxy));
+    const update = setInterval(() => {
+      dispatch(fetchFeed(storage.source, proxy));
+    }, updateStepSeconds * 1000)
+
+    return () => clearInterval(update);
+
   }, [storage.source]);
 
   return useTypedSelector(state => state.feed);
