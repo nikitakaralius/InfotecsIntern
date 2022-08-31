@@ -21,7 +21,7 @@ const App = () => {
 
       <div>
         {
-          content.map(a => <div>{a.title.content}</div>)
+          content.map(a => <div>{a.title}</div>)
         }
       </div>
     </div>

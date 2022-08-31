@@ -32,7 +32,7 @@ const feedSlice = createSlice({
     feedFetchingFailure(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
-      state.articles = SortedFeed.empty();
+      state.articles.content = [];
     }
   }
 });
