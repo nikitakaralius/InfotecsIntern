@@ -4,7 +4,7 @@ import {streamSlice} from '../reducers';
 import {TypedDispatch} from '../store';
 import {getErrorMessage} from './common';
 
-const appendStream = (stream: INewFeedStream, proxy?: IProxy) => async (dispatch: TypedDispatch) => {
+const appendStream = (stream: INewFeedStream, proxy: IProxy | null) => async (dispatch: TypedDispatch) => {
   dispatch(streamSlice.actions.appendStreamFetching());
   try {
     const newStream = await streamService(stream, proxy);
