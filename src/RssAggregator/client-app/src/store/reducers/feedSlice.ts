@@ -26,7 +26,7 @@ const feedSlice = createSlice({
       state.feed = action.payload;
     },
 
-    feedFetchingError(state, action: PayloadAction<string>) {
+    feedFetchingFailure(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
       state.feed = SortedFeed.empty();
