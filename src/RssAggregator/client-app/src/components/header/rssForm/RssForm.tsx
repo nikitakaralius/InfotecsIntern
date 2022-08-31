@@ -12,9 +12,10 @@ const RssForm = () => {
     e.preventDefault();
     const stream: INewFeedStream = {
       link: link
-    }
-    dispatch(appendStream(stream, proxy))
-  }
+    };
+    dispatch(appendStream(stream, proxy));
+    setLink('');
+  };
 
   return (
     <form onSubmit={onSubmit}>
