@@ -1,5 +1,6 @@
 import React from 'react';
 import {IPrimitiveArticle} from '../../../domain';
+import styles from './Article.module.scss';
 
 interface IArticleProps {
   content: IPrimitiveArticle;
@@ -7,8 +8,18 @@ interface IArticleProps {
 
 const Article = ({content}: IArticleProps) => {
   return (
-    <div>
-      {content.title}
+    <div className={styles.container}>
+
+      <div className={styles.title}>
+        <a href={content.link} target="_blank" className={styles.link}>
+          {content.title}
+        </a>
+      </div>
+
+      <div className={styles.explore}>
+        Explore
+      </div>
+
     </div>
   );
 };

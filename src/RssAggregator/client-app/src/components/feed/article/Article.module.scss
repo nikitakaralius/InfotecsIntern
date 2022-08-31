@@ -1,0 +1,30 @@
+@import '../../../styles/variables';
+
+.container {
+  margin-bottom: 5px;
+  display: grid;
+  grid-template-columns: 1fr 125px;
+  grid-gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+.title, .explore {
+  border: 3px solid $primary-color;
+  border-radius: 10px;
+}
+
+.title {
+  padding: 5px;
+}
+
+.explore {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 5px 0 5px 0;
+}
