@@ -1,0 +1,19 @@
+@import "../../../styles/variables";
+
+.container {
+  width: 100%;
+}
+
+.input {
+  border-radius: 10px;
+  width: 80%;
+  height: 40px;
+}
+
+.submit {
+  border-radius: 10px;
+  margin-left: 5px;
+  height: 47px;
+  width: 15%;
+  background: $primary-color;
+}
