@@ -1,4 +1,4 @@
-import {String100, String250} from './index';
+import {articleComparer, String100, String250} from './index';
 
 interface IProxy {
   host: string;
@@ -7,7 +7,7 @@ interface IProxy {
   auth: {
     username: string;
     password: string;
-  }
+  };
 }
 
 interface IArticle {
@@ -39,4 +39,17 @@ type StreamStorage = FeedStream[];
 
 type FeedSource = IEnabledFeedStream[];
 
-export type {IProxy, IArticle, FeedSource};
+class SortedFeed {
+  readonly feed: IArticle[];
+
+  private constructor(feed: IArticle[]) {
+    this.feed = feed;
+  }
+
+  static create(feed: IArticle[]) {
+    feed.sort(articleComparer);
+    return new SortedFeed(feed);
+  }
+}
+
+export type {IProxy, IArticle, FeedSource, SortedFeed};
