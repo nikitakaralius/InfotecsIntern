@@ -52,8 +52,9 @@ class StreamStorage {
   }
 
   static create(streams: FeedStream[]) {
-    const source = streams.filter(activeStreamFilter);
-    return new StreamStorage(streams, source);
+    const unique = streams.filter((value, index) => streams.indexOf(value) === index);
+    const source = unique.filter(activeStreamFilter);
+    return new StreamStorage(unique, source);
   }
 
   static empty() {
@@ -89,6 +90,8 @@ class StreamStorage {
   }
 
   append(stream: IEnabledFeedStream) {
+    const index = this.streams.findIndex(s => streamEquality(s, stream));
+    if (index !== -1) return;
     this.streams.push(stream);
     this.source.push(stream);
   }
