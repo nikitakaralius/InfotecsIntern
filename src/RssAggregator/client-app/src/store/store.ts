@@ -1,6 +1,10 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
+import {articleSlice, proxySlice} from './reducers';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  article: articleSlice.reducer,
+  proxy: proxySlice.reducer
+});
 
 const setupStore = () => {
   return configureStore({
