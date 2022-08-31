@@ -9,6 +9,10 @@ const useFeed = () => {
 
   useEffect(() => {
     dispatch(fetchFeed(storage.source, proxy));
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchFeed(storage.source, proxy));
   }, [storage.source]);
 
   return useTypedSelector(state => state.feed);
