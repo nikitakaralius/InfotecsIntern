@@ -2,10 +2,11 @@ import React from 'react'
 import {Header} from '../header';
 import {Feed} from '../feed';
 import {StreamList} from '../streams';
+import styles from './App.module.scss';
 
 const App = () => {
   return (
-    <div>
+    <div className={styles.grid}>
       <Header />
       <Feed />
       <StreamList />
