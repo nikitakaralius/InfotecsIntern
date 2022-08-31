@@ -1,4 +1,4 @@
-import {activeStreamFilter, articleComparer, String100, String250} from './index';
+import {activeStreamFilter, articleComparer, streamEquality, String100, String250} from './index';
 
 interface IProxy {
   host: string;
@@ -35,15 +35,53 @@ interface INewFeedStream {
 
 type FeedStream = IEnabledFeedStream | IDisabledFeedStream;
 
-type FeedSource = IEnabledFeedStream[];
+type FeedSource = readonly IEnabledFeedStream[];
 
 class StreamStorage {
-  readonly streams: FeedStream[];
-  readonly source: FeedSource;
+  private readonly streams: FeedStream[];
+  private readonly source: IEnabledFeedStream[];
 
-  constructor(streams: FeedStream[]) {
+  private constructor(streams: FeedStream[], source: IEnabledFeedStream[]) {
     this.streams = streams;
-    this.source = streams.filter(activeStreamFilter);
+    this.source = source;
+  }
+
+  static create(streams: FeedStream[]) {
+    const source = streams.filter(activeStreamFilter);
+    return new StreamStorage(streams, source);
+  }
+
+  static empty() {
+    return new StreamStorage([], []);
+  }
+
+  getStreams(): readonly FeedStream[] {
+    return this.streams;
+  }
+
+  getSource(): FeedSource {
+    return this.source;
+  }
+
+  enable(stream: IDisabledFeedStream) {
+    const index = this.streams.findIndex(s => streamEquality(s, stream));
+    if (index === -1) return;
+    this.streams[index] = {
+      title: stream.title,
+      link: stream.link,
+      active: true
+    }
+  }
+
+
+  disable(stream: IEnabledFeedStream) {
+    const index = this.streams.findIndex(s => streamEquality(s, stream));
+    if (index === -1) return;
+    this.streams[index] = {
+      title: stream.title,
+      link: stream.link,
+      active: false
+    }
   }
 }
 
