@@ -57,4 +57,12 @@ class SortedFeed {
 }
 
 export {SortedFeed};
-export type {IProxy, IArticle, FeedSource};
+export type {
+  IProxy,
+  IArticle,
+  FeedSource,
+  StreamStorage,
+  IEnabledFeedStream,
+  IDisabledFeedStream,
+  INewFeedStream
+};
