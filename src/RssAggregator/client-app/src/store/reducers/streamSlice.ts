@@ -44,7 +44,6 @@ const streamSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.storage = operate(state.storage, s => s.append(action.payload));
-      console.log(state.storage);
     },
 
     appendStreamFailure(state, action: PayloadAction<string>) {

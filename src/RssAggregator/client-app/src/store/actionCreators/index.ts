@@ -1,3 +1,3 @@
 export {fetchFeed} from './feedActions';
 export {appendStream} from './streamActions';
-export {addProxy} from './settingsActions';
+export {addProxy, changeUpdateRate} from './settingsActions';

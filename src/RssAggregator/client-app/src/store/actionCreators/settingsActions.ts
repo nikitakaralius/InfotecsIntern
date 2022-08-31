@@ -6,4 +6,8 @@ const addProxy = (proxy: IProxy) => async (dispatch: TypedDispatch) => {
   dispatch(settingsSlice.actions.addProxy(proxy));
 }
 
-export {addProxy};
+const changeUpdateRate = (updateRate: number) => async (dispatch: TypedDispatch) => {
+  dispatch(settingsSlice.actions.changeUpdateRate(updateRate));
+}
+
+export {addProxy, changeUpdateRate};

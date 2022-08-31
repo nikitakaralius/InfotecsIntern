@@ -1,5 +1,6 @@
 {
   "defaultFeed": "https://habr.com/rss/interesting/",
+  "updateRateInSeconds": 60,
   "proxy": {
     "host": "",
     "port": "",

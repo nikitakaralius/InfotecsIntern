@@ -22,6 +22,10 @@ const settingsSlice = createSlice({
 
     resetProxy(state) {
       state.storage.proxy = null;
+    },
+
+    changeUpdateRate(state, action: PayloadAction<number>) {
+      state.storage.updateStepSeconds = action.payload;
     }
   }
 });
