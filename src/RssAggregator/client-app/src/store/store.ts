@@ -1,8 +1,8 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
-import {articleSlice, proxySlice} from './reducers';
+import {feedSlice, proxySlice} from './reducers';
 
 const rootReducer = combineReducers({
-  article: articleSlice.reducer,
+  article: feedSlice.reducer,
   proxy: proxySlice.reducer
 });
 

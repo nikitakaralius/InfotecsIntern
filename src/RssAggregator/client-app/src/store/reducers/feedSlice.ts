@@ -13,8 +13,8 @@ const initialState: IFeedState = {
   error: null
 };
 
-const articleSlice = createSlice({
-  name: 'article',
+const feedSlice = createSlice({
+  name: 'feed',
   initialState: initialState,
   reducers: {
     feedFetching(state) {
@@ -22,7 +22,6 @@ const articleSlice = createSlice({
     },
 
     feedFetchingSuccess(state, action: PayloadAction<SortedFeed>) {
-      state.isLoading = false;
       state.error = null;
       state.feed = action.payload;
     },
@@ -35,4 +34,4 @@ const articleSlice = createSlice({
   }
 });
 
-export {articleSlice};
+export {feedSlice};
