@@ -40,7 +40,7 @@ interface INewFeedStream {
 
 type FeedStream = IEnabledFeedStream | IDisabledFeedStream;
 
-type FeedSource = readonly IEnabledFeedStream[];
+type FeedSource = IEnabledFeedStream[];
 
 class StreamStorage {
   private readonly streams: FeedStream[];
@@ -60,7 +60,7 @@ class StreamStorage {
     return new StreamStorage([], []);
   }
 
-  getStreams(): readonly FeedStream[] {
+  getStreams(): FeedStream[] {
     return this.streams;
   }
 

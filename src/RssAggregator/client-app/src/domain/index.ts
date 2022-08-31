@@ -11,3 +11,10 @@ export type {
   INewFeedStream,
   ISettingsStorage
 } from './compoundTypes';
+export type {IPrimitiveStreamStorage, IPrimitiveSortedFeed} from './primitives';
+export {
+  castToSortedFeed,
+  castToStreamStorage,
+  castToPrimitiveSortedFeed,
+  castToPrimitiveStreamStorage
+} from './primitives';
