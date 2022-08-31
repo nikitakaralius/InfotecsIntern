@@ -20,11 +20,13 @@ interface IArticle {
 interface IEnabledFeedStream {
   title: string;
   link: URL;
+  active: true;
 }
 
 interface IDisabledFeedStream {
   title: string;
   link: URL;
+  active: false;
 }
 
 interface INewFeedStream {
