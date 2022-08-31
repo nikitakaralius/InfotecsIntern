@@ -58,7 +58,7 @@ const castToStreamStorage = (storage: IPrimitiveStreamStorage) => {
   return StreamStorage.create(storage.streams);
 };
 
-export type {IPrimitiveSortedFeed, IPrimitiveStreamStorage};
+export type {IPrimitiveSortedFeed, IPrimitiveStreamStorage, IPrimitiveArticle};
 export {
   castToPrimitiveSortedFeed,
   castToSortedFeed,
