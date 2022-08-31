@@ -2,8 +2,8 @@ import {FeedSource, IArticle, IEnabledFeedStream, INewFeedStream, IProxy, Sorted
 import axios from 'axios';
 import {parseFeed, parseStreamTitle} from './rssParser';
 
-const bypassCors = (target: URL) => {
-  return `https://thingproxy.freeboard.io/fetch/${target.href}`;
+const bypassCors = (target: string) => {
+  return `https://thingproxy.freeboard.io/fetch/${target}`;
 };
 
 const fetchFeed = async (source: FeedSource, proxy: IProxy | null = null) => {

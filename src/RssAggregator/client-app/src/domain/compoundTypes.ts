@@ -24,18 +24,18 @@ interface IArticle {
 
 interface IEnabledFeedStream {
   title: string;
-  link: URL;
+  link: string;
   active: true;
 }
 
 interface IDisabledFeedStream {
   title: string;
-  link: URL;
+  link: string;
   active: false;
 }
 
 interface INewFeedStream {
-  link: URL;
+  link: string;
 }
 
 type FeedStream = IEnabledFeedStream | IDisabledFeedStream;

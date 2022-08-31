@@ -7,7 +7,7 @@ const activeStreamFilter = (stream: FeedStream): stream is IEnabledFeedStream =>
 };
 
 const streamEquality = (x: FeedStream, y: FeedStream) => {
-  return x.active === y.active && x.link.href === y.link.href;
+  return x.active === y.active && x.link === y.link;
 }
 
 export {articleComparer, activeStreamFilter, streamEquality};
