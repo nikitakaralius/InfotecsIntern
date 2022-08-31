@@ -1,4 +1,4 @@
-import {articleComparer, String100, String250} from './index';
+import {activeStreamFilter, articleComparer, String100, String250} from './index';
 
 interface IProxy {
   host: string;
@@ -35,9 +35,17 @@ interface INewFeedStream {
 
 type FeedStream = IEnabledFeedStream | IDisabledFeedStream;
 
-type StreamStorage = FeedStream[];
-
 type FeedSource = IEnabledFeedStream[];
+
+class StreamStorage {
+  readonly streams: FeedStream[];
+  readonly source: FeedSource;
+
+  constructor(streams: FeedStream[]) {
+    this.streams = streams;
+    this.source = streams.filter(activeStreamFilter);
+  }
+}
 
 class SortedFeed {
   readonly feed: IArticle[];
@@ -56,13 +64,12 @@ class SortedFeed {
   }
 }
 
-export {SortedFeed};
+export {SortedFeed, StreamStorage};
 export type {
   IProxy,
   IArticle,
   FeedSource,
   FeedStream,
-  StreamStorage,
   IEnabledFeedStream,
   IDisabledFeedStream,
   INewFeedStream
