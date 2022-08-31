@@ -21,10 +21,10 @@ const streamSlice = createSlice({
       state.isLoading = true;
     },
 
-    appendStreamSuccess(state, action: PayloadAction<StreamStorage>) {
+    appendStreamSuccess(state, action: PayloadAction<IEnabledFeedStream>) {
       state.isLoading = false;
       state.error = null;
-      state.storage = action.payload;
+      state.storage = state.storage.append(action.payload);
     },
 
     appendStreamFailure(state, action: PayloadAction<string>) {
