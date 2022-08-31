@@ -4,11 +4,13 @@ import {fetchFeed} from '../store';
 
 const useFeed = () => {
   const {storage} = useTypedSelector(state => state.stream);
-  const {proxy} = useTypedSelector(state => state.settings.storage);
+  const {proxy, updateStepSeconds} = useTypedSelector(state => state.settings.storage);
   const dispatch = useTypedDispatch();
 
   useEffect(() => {
-    dispatch(fetchFeed(storage.source, proxy));
+    setInterval(() => {
+      dispatch(fetchFeed(storage.source, proxy));
+    }, updateStepSeconds * 1000)
   }, []);
 
   useEffect(() => {
