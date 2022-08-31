@@ -12,7 +12,7 @@ const Article = ({content}: IArticleProps) => {
 
       <div className={styles.title}>
         <a href={content.link} target="_blank" className={styles.link}>
-          {content.title}
+          {content.title} <span className={styles.date}>{content.pubDate}</span>
         </a>
       </div>
 
