@@ -5,17 +5,15 @@ import styles from './Header.module.scss';
 const Header = () => {
   return (
     <header className={styles.container}>
-
-      <div>
-        RSS Aggregator
+      <div className={styles.mainArea}>
+        <div className={styles.title}>
+          RSS Aggregator
+        </div>
+        <RssForm />
+        <div className={styles.example}>
+          Example: https://ru.hexlet.io/lessons.rss
+        </div>
       </div>
-
-      <RssForm />
-
-      <div>
-        Example: https://habr/ru/rss/interesting
-      </div>
-
     </header>
   );
 };
