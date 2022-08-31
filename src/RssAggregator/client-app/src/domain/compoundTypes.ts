@@ -39,4 +39,4 @@ type StreamStorage = FeedStream[];
 
 type FeedSource = IEnabledFeedStream[];
 
-export type {IProxy, IArticle};
+export type {IProxy, IArticle, FeedSource};
