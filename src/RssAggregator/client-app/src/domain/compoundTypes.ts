@@ -88,9 +88,9 @@ class StreamStorage {
     };
   }
 
-  append(stream: IEnabledFeedStream): StreamStorage {
-    const streams = [...this.streams, stream];
-    return StreamStorage.create(streams);
+  append(stream: IEnabledFeedStream) {
+    this.streams.push(stream);
+    this.source.push(stream);
   }
 }
 

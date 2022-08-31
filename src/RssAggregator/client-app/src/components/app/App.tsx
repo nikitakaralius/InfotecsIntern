@@ -5,7 +5,7 @@ import {appendStream} from '../../store';
 
 const App = () => {
 
-  const {content} = useFeed();
+  const {articles} = useFeed();
   const dispatch = useTypedDispatch();
 
   return (
@@ -21,7 +21,7 @@ const App = () => {
 
       <div>
         {
-          content.map(a => <div>{a.title}</div>)
+          articles.content.map(a => <div>{a.title}</div>)
         }
       </div>
     </div>

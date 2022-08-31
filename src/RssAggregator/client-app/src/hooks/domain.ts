@@ -5,14 +5,13 @@ import {fetchFeed} from '../store';
 const useFeed = () => {
   const {storage} = useTypedSelector(state => state.stream);
   const {proxy} = useTypedSelector(state => state.settings.storage);
-  const {articles} = useTypedSelector(state => state.feed);
   const dispatch = useTypedDispatch();
 
   useEffect(() => {
     dispatch(fetchFeed(storage.source, proxy));
-  }, []);
+  }, [storage.source]);
 
-  return articles;
+  return useTypedSelector(state => state.feed);
 };
 
 export {useFeed};
