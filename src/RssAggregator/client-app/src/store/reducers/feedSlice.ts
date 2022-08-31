@@ -1,14 +1,16 @@
-import {SortedFeed} from '../../domain';
+import {IPrimitiveSortedFeed, SortedFeed} from '../../domain';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface IFeedState {
-  articles: SortedFeed;
+  articles: IPrimitiveSortedFeed;
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: IFeedState = {
-  articles: SortedFeed.empty(),
+  articles: {
+    content: []
+  },
   isLoading: false,
   error: null
 };
@@ -21,7 +23,8 @@ const feedSlice = createSlice({
       state.isLoading = true;
     },
 
-    feedFetchingSuccess(state, action: PayloadAction<SortedFeed>) {
+    feedFetchingSuccess(state, action: PayloadAction<IPrimitiveSortedFeed>) {
+      state.isLoading = false;
       state.error = null;
       state.articles = action.payload;
     },

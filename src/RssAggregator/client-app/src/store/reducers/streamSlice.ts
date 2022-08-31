@@ -1,8 +1,16 @@
-import {IDisabledFeedStream, IEnabledFeedStream, StreamStorage} from '../../domain';
+import {
+  castToPrimitiveStreamStorage,
+  castToStreamStorage,
+  IDisabledFeedStream,
+  IEnabledFeedStream,
+  INewFeedStream,
+  IPrimitiveStreamStorage,
+  StreamStorage
+} from '../../domain';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface IStreamState {
-  storage: StreamStorage;
+  storage: IPrimitiveStreamStorage;
   isLoading: boolean;
   error: string | null;
 }
@@ -11,6 +19,15 @@ const initialState: IStreamState = {
   storage: StreamStorage.empty(),
   isLoading: false,
   error: null
+};
+
+const operate = (
+  storage: IPrimitiveStreamStorage,
+  action: (_: StreamStorage) => void
+) => {
+  const streamStorage = castToStreamStorage(storage);
+  action(streamStorage);
+  return castToPrimitiveStreamStorage(streamStorage);
 };
 
 const streamSlice = createSlice({
@@ -24,7 +41,7 @@ const streamSlice = createSlice({
     appendStreamSuccess(state, action: PayloadAction<IEnabledFeedStream>) {
       state.isLoading = false;
       state.error = null;
-      state.storage = state.storage.append(action.payload);
+      state.storage = operate(state.storage, s => s.append(action.payload));
     },
 
     appendStreamFailure(state, action: PayloadAction<string>) {
@@ -33,11 +50,11 @@ const streamSlice = createSlice({
     },
 
     enableStream(state, action: PayloadAction<IDisabledFeedStream>) {
-      state.storage.enable(action.payload);
+      state.storage = operate(state.storage, s => s.enable(action.payload));
     },
 
     disableStream(state, action: PayloadAction<IEnabledFeedStream>) {
-      state.storage.disable(action.payload);
+      state.storage = operate(state.storage, s => s.disable(action.payload));
     }
   }
 });

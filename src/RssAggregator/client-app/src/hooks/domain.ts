@@ -9,7 +9,7 @@ const useFeed = () => {
   const dispatch = useTypedDispatch();
 
   useEffect(() => {
-    dispatch(fetchFeed(storage.getSource(), proxy));
+    dispatch(fetchFeed(storage.source, proxy));
   }, []);
 
   return articles;
