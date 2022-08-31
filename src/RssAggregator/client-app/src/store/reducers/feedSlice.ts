@@ -2,13 +2,13 @@ import {SortedFeed} from '../../domain';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface IFeedState {
-  feed: SortedFeed;
+  articles: SortedFeed;
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: IFeedState = {
-  feed: SortedFeed.empty(),
+  articles: SortedFeed.empty(),
   isLoading: false,
   error: null
 };
@@ -23,13 +23,13 @@ const feedSlice = createSlice({
 
     feedFetchingSuccess(state, action: PayloadAction<SortedFeed>) {
       state.error = null;
-      state.feed = action.payload;
+      state.articles = action.payload;
     },
 
     feedFetchingFailure(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
-      state.feed = SortedFeed.empty();
+      state.articles = SortedFeed.empty();
     }
   }
 });
