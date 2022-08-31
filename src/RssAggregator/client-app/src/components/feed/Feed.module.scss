@@ -1,10 +1,9 @@
-@import '../../styles/variables';
+@import '../../styles/variables.scss';
 
 .container {
-  grid-area: streams;
-
+  grid-area: feed;
   @media (min-width: $min-width) {
-    padding: 0 10px 0 0;
+    padding: 0 0 0 10px;
   }
   padding: 0 10px 0 10px;
 }
