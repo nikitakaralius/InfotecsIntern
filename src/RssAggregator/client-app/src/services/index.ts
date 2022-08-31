@@ -1,1 +1,1 @@
-export {parseFeed} from './rssParser';
+export {parseFeed, parseStreamTitle} from './rssParser';

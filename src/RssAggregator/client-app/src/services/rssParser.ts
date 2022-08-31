@@ -32,8 +32,19 @@ const parseFeed = (content: string) => {
 
     return feed;
   } catch (e) {
-    throw new Error('Unsupported RSS dialect');
+    throw new Error('Unknown RSS dialect');
   }
 };
 
-export {parseFeed};
+const parseStreamTitle = (content: string) => {
+  const tree = createXmlTree(content);
+  try {
+    const channel = tree.querySelector('channel')!;
+    const title = channel.querySelector('title')!;
+    return title.textContent!;
+  } catch (e) {
+    throw new Error('Unknown RSS dialect');
+  }
+};
+
+export {parseFeed, parseStreamTitle};
