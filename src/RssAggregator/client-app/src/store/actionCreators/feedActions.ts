@@ -4,7 +4,7 @@ import {feedSlice} from '../reducers';
 import {fetchFeed as feedService} from '../../services';
 import {getErrorMessage} from './common';
 
-const fetchFeed = (source: FeedSource, proxy?: IProxy) => async (dispatch: TypedDispatch) => {
+const fetchFeed = (source: FeedSource, proxy: IProxy | null = null) => async (dispatch: TypedDispatch) => {
   dispatch(feedSlice.actions.feedFetching());
   try {
     const feed = await feedService(source, proxy);

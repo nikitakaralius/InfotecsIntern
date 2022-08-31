@@ -6,7 +6,7 @@ const bypassCors = (target: URL) => {
   return `https://thingproxy.freeboard.io/fetch/${target.href}`;
 };
 
-const fetchFeed = async (source: FeedSource, proxy?: IProxy) => {
+const fetchFeed = async (source: FeedSource, proxy: IProxy | null = null) => {
   let articles: IArticle[] = [];
   for (let stream of source) {
     const url = bypassCors(stream.link);
