@@ -50,6 +50,11 @@ class SortedFeed {
     feed.sort(articleComparer);
     return new SortedFeed(feed);
   }
+
+  static empty() {
+    return new SortedFeed([]);
+  }
 }
 
-export type {IProxy, IArticle, FeedSource, SortedFeed};
+export {SortedFeed};
+export type {IProxy, IArticle, FeedSource};
