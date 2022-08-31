@@ -95,10 +95,10 @@ class StreamStorage {
 }
 
 class SortedFeed {
-  readonly feed: IArticle[];
+  readonly content: IArticle[];
 
   private constructor(feed: IArticle[]) {
-    this.feed = feed;
+    this.content = feed;
   }
 
   static create(feed: IArticle[]) {
