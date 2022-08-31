@@ -1,6 +1,6 @@
-import {FeedSource, IArticle, IProxy, SortedFeed} from '../domain';
+import {FeedSource, IArticle, IEnabledFeedStream, INewFeedStream, IProxy, SortedFeed} from '../domain';
 import axios from 'axios';
-import {parseFeed} from './rssParser';
+import {parseFeed, parseStreamTitle} from './rssParser';
 
 const bypassCors = (target: URL) => {
   return `https://thingproxy.freeboard.io/fetch/${target.href}`;
@@ -16,4 +16,15 @@ const fetchFeed = async (source: FeedSource, proxy?: IProxy) => {
   return SortedFeed.create(articles);
 };
 
-export {fetchFeed};
+const fetchStream = async (stream: INewFeedStream, proxy?: IProxy) => {
+  const response = await axios.get(stream.link.href);
+  const title = parseStreamTitle(response.data);
+  const newStream: IEnabledFeedStream = {
+    title: title,
+    link: stream.link,
+    active: true
+  }
+  return newStream;
+}
+
+export {fetchFeed, fetchStream};

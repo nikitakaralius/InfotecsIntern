@@ -1,2 +1,2 @@
 export {parseFeed, parseStreamTitle} from './rssParser';
-export {fetchFeed} from './rssService';
+export {fetchFeed, fetchStream} from './rssService';
