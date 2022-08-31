@@ -82,6 +82,11 @@ class StreamStorage {
       active: false
     };
   }
+
+  append(stream: IEnabledFeedStream): StreamStorage {
+    const streams = [...this.streams, stream];
+    return StreamStorage.create(streams);
+  }
 }
 
 class SortedFeed {
