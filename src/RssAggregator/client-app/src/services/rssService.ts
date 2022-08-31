@@ -17,7 +17,8 @@ const fetchFeed = async (source: FeedSource, proxy: IProxy | null = null) => {
 };
 
 const fetchStream = async (stream: INewFeedStream, proxy?: IProxy) => {
-  const response = await axios.get(stream.link.href);
+  const url = bypassCors(stream.link);
+  const response = await axios.get(url, {proxy: proxy ?? false});
   const title = parseStreamTitle(response.data);
   const newStream: IEnabledFeedStream = {
     title: title,
