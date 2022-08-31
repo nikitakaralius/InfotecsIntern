@@ -10,7 +10,7 @@ interface IProxy {
   };
 }
 
-interface ISettings {
+interface ISettingsStorage {
   updateStepSeconds: number;
   proxy: IProxy | null;
 }
@@ -120,5 +120,5 @@ export type {
   IEnabledFeedStream,
   IDisabledFeedStream,
   INewFeedStream,
-  ISettings
+  ISettingsStorage
 };

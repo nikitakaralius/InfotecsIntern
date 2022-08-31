@@ -9,5 +9,5 @@ export type {
   IEnabledFeedStream,
   IDisabledFeedStream,
   INewFeedStream,
-  ISettings
+  ISettingsStorage
 } from './compoundTypes';

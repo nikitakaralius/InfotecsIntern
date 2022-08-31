@@ -1,27 +1,27 @@
-import {IProxy, ISettings} from '../../domain';
+import {IProxy, ISettingsStorage} from '../../domain';
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface ISettingsState {
-  settings: ISettings;
+  storage: ISettingsStorage;
 }
 
 const initialState: ISettingsState = {
-  settings: {
+  storage: {
     updateStepSeconds: 60,
     proxy: null
   }
 };
 
 const settingsSlice = createSlice({
-  name: 'proxy',
+  name: 'settings',
   initialState: initialState,
   reducers: {
     addProxy(state, action: PayloadAction<IProxy>) {
-      state.settings.proxy = action.payload;
+      state.storage.proxy = action.payload;
     },
 
     resetProxy(state) {
-      state.settings.proxy = null;
+      state.storage.proxy = null;
     }
   }
 });
