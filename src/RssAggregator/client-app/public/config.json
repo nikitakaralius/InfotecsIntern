@@ -1,0 +1,11 @@
+{
+  "defaultFeed": "https://habr.com/rss/interesting/",
+  "proxy": {
+    "host": "",
+    "port": "",
+    "auth": {
+      "username": "",
+      "password": ""
+    }
+  }
+}
