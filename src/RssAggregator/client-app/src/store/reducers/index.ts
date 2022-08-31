@@ -1,3 +1,3 @@
 export {feedSlice} from './feedSlice';
-export {proxySlice} from './proxySlice';
+export {settingsSlice} from './settingsSlice';
 export {streamSlice} from './streamSlice';

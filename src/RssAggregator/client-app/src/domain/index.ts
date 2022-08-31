@@ -8,5 +8,6 @@ export type {
   FeedSource,
   IEnabledFeedStream,
   IDisabledFeedStream,
-  INewFeedStream
+  INewFeedStream,
+  ISettings
 } from './compoundTypes';

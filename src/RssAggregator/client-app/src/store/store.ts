@@ -1,9 +1,9 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
-import {feedSlice, proxySlice, streamSlice} from './reducers';
+import {feedSlice, settingsSlice, streamSlice} from './reducers';
 
 const rootReducer = combineReducers({
   article: feedSlice.reducer,
-  proxy: proxySlice.reducer,
+  proxy: settingsSlice.reducer,
   stream: streamSlice.reducer
 });
 

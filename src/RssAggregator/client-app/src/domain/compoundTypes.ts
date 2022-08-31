@@ -10,6 +10,11 @@ interface IProxy {
   };
 }
 
+interface ISettings {
+  updateStepSeconds: number;
+  proxy: IProxy | null;
+}
+
 interface IArticle {
   title: String100;
   description: String250;
@@ -114,5 +119,6 @@ export type {
   FeedStream,
   IEnabledFeedStream,
   IDisabledFeedStream,
-  INewFeedStream
+  INewFeedStream,
+  ISettings
 };
