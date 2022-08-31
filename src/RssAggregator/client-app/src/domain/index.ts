@@ -1,9 +1,10 @@
 export {String100, String250} from './simpleTypes';
 export {SortedFeed} from './compoundTypes';
-export {articleComparer} from './rules';
+export {articleComparer, activeStreamFilter} from './rules';
 export type {
   IProxy,
   IArticle,
+  FeedStream,
   FeedSource,
   StreamStorage,
   IEnabledFeedStream,

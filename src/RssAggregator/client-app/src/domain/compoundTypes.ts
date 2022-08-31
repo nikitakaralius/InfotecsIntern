@@ -61,6 +61,7 @@ export type {
   IProxy,
   IArticle,
   FeedSource,
+  FeedStream,
   StreamStorage,
   IEnabledFeedStream,
   IDisabledFeedStream,
