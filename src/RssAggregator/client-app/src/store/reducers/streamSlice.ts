@@ -23,7 +23,7 @@ const initialState: IStreamState = {
   error: null
 };
 
-const operate = (
+const ensureInvariant = (
   storage: IPrimitiveStreamStorage,
   action: (_: StreamStorage) => void
 ) => {
@@ -43,7 +43,7 @@ const streamSlice = createSlice({
     appendStreamSuccess(state, action: PayloadAction<IEnabledFeedStream>) {
       state.isLoading = false;
       state.error = null;
-      state.storage = operate(state.storage, s => s.append(action.payload));
+      state.storage = ensureInvariant(state.storage, s => s.append(action.payload));
     },
 
     appendStreamFailure(state, action: PayloadAction<string>) {
@@ -52,11 +52,11 @@ const streamSlice = createSlice({
     },
 
     enableStream(state, action: PayloadAction<IDisabledFeedStream>) {
-      state.storage = operate(state.storage, s => s.enable(action.payload));
+      state.storage = ensureInvariant(state.storage, s => s.enable(action.payload));
     },
 
     disableStream(state, action: PayloadAction<IEnabledFeedStream>) {
-      state.storage = operate(state.storage, s => s.disable(action.payload));
+      state.storage = ensureInvariant(state.storage, s => s.disable(action.payload));
     }
   }
 });
