@@ -70,9 +70,8 @@ class StreamStorage {
       title: stream.title,
       link: stream.link,
       active: true
-    }
+    };
   }
-
 
   disable(stream: IEnabledFeedStream) {
     const index = this.streams.findIndex(s => streamEquality(s, stream));
@@ -81,7 +80,7 @@ class StreamStorage {
       title: stream.title,
       link: stream.link,
       active: false
-    }
+    };
   }
 }
 
