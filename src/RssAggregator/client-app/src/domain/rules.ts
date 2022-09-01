@@ -1,6 +1,6 @@
 import {FeedStream, IArticle, IEnabledFeedStream} from './index';
 
-const articleComparer = (x: IArticle, y: IArticle) => x.pubDate.getTime() - y.pubDate.getTime();
+const articleComparer = (x: IArticle, y: IArticle) => y.pubDate.getTime() - x.pubDate.getTime();
 
 const activeStreamFilter = (stream: FeedStream): stream is IEnabledFeedStream => {
   return stream.active;
