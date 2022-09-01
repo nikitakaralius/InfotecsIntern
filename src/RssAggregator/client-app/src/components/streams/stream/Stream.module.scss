@@ -1,13 +1,12 @@
-.container {
-  display: grid;
-  grid-template-areas: "title buttonGroup";
-  grid-template-rows: 80% 20%;
+@import '../../../styles/variables';
+
+.link {
+  text-decoration: none;
+  color: $primary-color;
+  font-weight: 450;
 }
 
-.title {
-  grid-area: title;
-}
-
-.buttonGroup {
-  grid-area: buttonGroup;
+.link:hover {
+  color: $accent-color;
+  transition: color 0.2s;
 }

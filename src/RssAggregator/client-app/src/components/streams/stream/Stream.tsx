@@ -25,17 +25,9 @@ const Stream = ({content}: IStreamProps) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>
+      <a href={content.link} target='_blank' className={styles.link}>
         {content.title}
-      </div>
-      <div className={styles.buttonGroup}>
-        <button onClick={setStreamStatus}>
-          {content.active ? 'Disable' : 'Enable'}
-        </button>
-        <button onClick={remove}>
-          Remove
-        </button>
-      </div>
+      </a>
     </div>
   );
 };
