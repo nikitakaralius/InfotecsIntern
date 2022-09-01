@@ -43,8 +43,8 @@ type FeedStream = IEnabledFeedStream | IDisabledFeedStream;
 type FeedSource = IEnabledFeedStream[];
 
 class StreamStorage {
-  readonly streams: FeedStream[];
-  readonly source: IEnabledFeedStream[];
+  streams: FeedStream[];
+  source: IEnabledFeedStream[];
 
   private constructor(streams: FeedStream[], source: IEnabledFeedStream[]) {
     this.streams = streams;
@@ -94,6 +94,11 @@ class StreamStorage {
     if (index !== -1) return;
     this.streams.push(stream);
     this.source.push(stream);
+  }
+
+  remove(stream: FeedStream) {
+    this.streams = this.streams.filter(s => !streamEquality(s, stream));
+    this.source = this.source.filter(s => !streamEquality(s, stream));
   }
 }
 

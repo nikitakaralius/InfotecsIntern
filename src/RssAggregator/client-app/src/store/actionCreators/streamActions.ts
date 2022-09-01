@@ -1,4 +1,4 @@
-import {IDisabledFeedStream, IEnabledFeedStream, INewFeedStream, IProxy} from '../../domain';
+import {FeedStream, IDisabledFeedStream, IEnabledFeedStream, INewFeedStream, IProxy} from '../../domain';
 import {fetchStream as streamService} from '../../services';
 import {streamSlice} from '../reducers';
 import {TypedDispatch} from '../store';
@@ -23,4 +23,8 @@ const disableStream = (stream: IEnabledFeedStream) => async (dispatch: TypedDisp
   dispatch(streamSlice.actions.disableStream(stream));
 }
 
-export {appendStream, enableStream, disableStream};
+const removeStream = (stream: FeedStream) => async (dispatch: TypedDispatch) => {
+  dispatch(streamSlice.actions.removeStream(stream));
+}
+
+export {appendStream, enableStream, disableStream, removeStream};

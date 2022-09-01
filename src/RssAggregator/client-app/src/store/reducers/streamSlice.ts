@@ -1,6 +1,6 @@
 import {
   castToPrimitiveStreamStorage,
-  castToStreamStorage,
+  castToStreamStorage, FeedStream,
   IDisabledFeedStream,
   IEnabledFeedStream,
   IPrimitiveStreamStorage,
@@ -57,6 +57,10 @@ const streamSlice = createSlice({
 
     disableStream(state, action: PayloadAction<IEnabledFeedStream>) {
       state.storage = ensureInvariant(state.storage, s => s.disable(action.payload));
+    },
+
+    removeStream(state, action: PayloadAction<FeedStream>) {
+      state.storage = ensureInvariant(state.storage, s => s.remove(action.payload));
     }
   }
 });
