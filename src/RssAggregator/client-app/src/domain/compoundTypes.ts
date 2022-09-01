@@ -77,6 +77,7 @@ class StreamStorage {
       link: stream.link,
       active: true
     };
+    this.source.push(this.streams[index] as IEnabledFeedStream);
   }
 
   disable(stream: IEnabledFeedStream) {
@@ -87,6 +88,7 @@ class StreamStorage {
       link: stream.link,
       active: false
     };
+    this.source = this.source.filter(s => !streamEquality(s, stream));
   }
 
   append(stream: IEnabledFeedStream) {
