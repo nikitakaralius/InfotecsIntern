@@ -10,18 +10,12 @@ interface IArticleProps {
 const Article = ({content, onExploreClick}: IArticleProps) => {
   return (
     <div className={styles.container}>
-
       <div className={styles.title}>
         <a href={content.link} target="_blank" className={styles.link}>
           {content.title}
         </a>
         <div className={styles.date}>{content.pubDate}</div>
       </div>
-
-      <button onClick={() => onExploreClick(content)}>
-        Explore
-      </button>
-
     </div>
   );
 };
