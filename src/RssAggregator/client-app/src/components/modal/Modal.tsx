@@ -5,7 +5,6 @@ import {createPortal} from 'react-dom';
 interface IModalProps {
   children: React.ReactNode;
   open: boolean;
-  onClose: () => void;
 }
 
 const Modal = ({children, open}: IModalProps) => {
