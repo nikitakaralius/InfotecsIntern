@@ -15,7 +15,7 @@ interface IPrimitiveSortedFeed {
 const mapToPrimitiveArticle = (article: IArticle): IPrimitiveArticle => {
   return {
     title: article.title.content,
-    description: article.description.content,
+    description: article.description,
     link: article.link.href,
     pubDate: article.pubDate.toDateString()
   };
@@ -24,7 +24,7 @@ const mapToPrimitiveArticle = (article: IArticle): IPrimitiveArticle => {
 const mapToArticle = (primitive: IPrimitiveArticle): IArticle => {
   return {
     title: String100.createClamped(primitive.title),
-    description: String250.createClamped(primitive.description),
+    description: primitive.description,
     link: new URL(primitive.link),
     pubDate: new Date(primitive.pubDate)
   };

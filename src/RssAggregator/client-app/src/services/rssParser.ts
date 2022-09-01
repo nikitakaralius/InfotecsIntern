@@ -10,7 +10,7 @@ const mapArticle: MapArticle = (element) => {
 
   return {
     title: String100.createClamped(title),
-    description: String250.createClamped(description),
+    description: description,
     link: new URL(link),
     pubDate: new Date(pubDate)
   };

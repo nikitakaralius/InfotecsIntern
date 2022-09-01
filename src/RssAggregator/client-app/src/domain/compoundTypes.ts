@@ -17,7 +17,7 @@ interface ISettingsStorage {
 
 interface IArticle {
   title: String100;
-  description: String250;
+  description: string;
   link: URL;
   pubDate: Date;
 }
