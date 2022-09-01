@@ -7,12 +7,12 @@ const StreamList = () => {
   const {storage} = useTypedSelector(state => state.stream);
 
   if (storage.streams.length == 0)
-    return <div></div>
+    return null;
 
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
-        RSS Feed Streams
+        FEEDS
       </div>
       <div className={styles.list}>
         {
