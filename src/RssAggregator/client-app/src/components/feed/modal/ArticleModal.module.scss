@@ -1,2 +1,7 @@
+@import '../../../styles/variables';
+
 .container {
+  background: $background-color;
+  padding: 30px;
+  border-radius: 20px;
 }
