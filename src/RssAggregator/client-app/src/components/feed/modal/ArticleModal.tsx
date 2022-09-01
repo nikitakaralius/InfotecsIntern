@@ -1,7 +1,6 @@
 import React from 'react';
 import {Modal} from '../../modal';
 import {IPrimitiveArticle} from '../../../domain';
-import {Button} from '@chakra-ui/react';
 import styles from './ArticleModal.module.scss';
 
 interface IArticleModalProps {
@@ -25,9 +24,13 @@ const ArticleModal = ({article, onClose, open}: IArticleModalProps) => {
         <div className={styles.description}>
           {article.description}
         </div>
-        <div>
-          <button onClick={onClose}>Go back</button>
-          <Button>Read more</Button>
+        <div className={styles.buttons}>
+          <button onClick={onClose} className={styles.backButton}>
+            Go back
+          </button>
+          <a href={article.link} target="_blank" className={styles.readButton}>
+            Read more
+          </a>
         </div>
       </div>
     </Modal>

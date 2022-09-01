@@ -31,3 +31,32 @@
   overflow-wrap: break-word;
   margin-bottom: 20px;
 }
+
+.buttons {
+  float: right;
+}
+
+.backButton {
+  background-color: $danger-color;
+  color: $primary-color;
+  margin-right: 10px;
+}
+
+.readButton {
+  background-color: $secondary-color;
+  color: $primary-color;
+  text-decoration: none;
+}
+
+.backButton, .readButton {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 450;
+}
+
+.backButton:hover, .readButton:hover {
+  color: $background-color;
+  transition: color 0.2s;
+}
