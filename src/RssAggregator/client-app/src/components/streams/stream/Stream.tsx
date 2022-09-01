@@ -12,7 +12,7 @@ const Stream = ({content}: IStreamProps) => {
 
   const dispatch = useTypedDispatch();
 
-  const setStreamStatus = () => {
+  const changeStreamStatus = () => {
     if (content.active)
       dispatch(disableStream(content));
     else
@@ -28,6 +28,15 @@ const Stream = ({content}: IStreamProps) => {
       <a href={content.link} target='_blank' className={styles.link}>
         {content.title}
       </a>
+      <span
+        className={content.active ? styles.enabled: styles.disabled}
+        onClick={changeStreamStatus}
+      >
+        ⬤
+      </span>
+      <span className={styles.remove} onClick={remove}>
+        ✗
+      </span>
     </div>
   );
 };

@@ -2,15 +2,44 @@
 
 .container {
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .link {
   text-decoration: none;
   color: $primary-color;
   font-weight: 450;
+  margin-right: 10px;
 }
 
 .link:hover {
   color: $accent-color;
   transition: color 0.2s;
+}
+
+.enabled {
+  color: $secondary-color;
+}
+
+.enabled:hover {
+  color: $danger-color;
+  transition: color 0.2s;
+}
+
+.disabled:hover {
+  color: $secondary-color;
+  transition: color 0.2s;
+}
+
+.disabled {
+  color: $danger-color;
+}
+
+.remove {
+  margin-left: 10px;
+  color: $danger-color;
+}
+
+.enabled .disabled .remove {
+  font-size: 32px;
 }
