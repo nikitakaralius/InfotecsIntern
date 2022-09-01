@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {useFeed, useScrollLock} from '../../hooks';
 import {Article} from './article/Article';
 import styles from './Feed.module.scss';
-import Modal from '../modal/Modal';
 import {IPrimitiveArticle} from '../../domain';
+import {ArticleModal} from './modal/ArticleModal';
 
 const Feed = () => {
   const {articles} = useFeed();
@@ -17,20 +17,17 @@ const Feed = () => {
     lockScroll();
   }
 
+  const closeModal = () => {
+    unlockScroll();
+    setIsOpen(false);
+  }
+
   if (articles.content.length == 0)
     return null;
 
   return (
     <div className={styles.container}>
-      <Modal open={isOpen}>
-        {article?.title}
-        <div>
-          <button onClick={() => {
-            unlockScroll();
-            setIsOpen(false);
-          }}>Close</button>
-        </div>
-      </Modal>
+      <ArticleModal article={article} open={isOpen} onClose={closeModal} />
       <div className={styles.heading}>
         Feed
       </div>
