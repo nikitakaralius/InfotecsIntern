@@ -1,0 +1,12 @@
+@import '../../../../styles/variables';
+
+.container {
+  background: #000;
+  opacity: 75%;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  background: $accent-color;
+}

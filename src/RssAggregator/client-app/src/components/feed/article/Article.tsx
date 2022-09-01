@@ -4,9 +4,10 @@ import styles from './Article.module.scss';
 
 interface IArticleProps {
   content: IPrimitiveArticle;
+  openModal: (article: IPrimitiveArticle) => void;
 }
 
-const Article = ({content}: IArticleProps) => {
+const Article = ({content, openModal}: IArticleProps) => {
   return (
     <div className={styles.container}>
 
@@ -16,9 +17,12 @@ const Article = ({content}: IArticleProps) => {
         </a>
       </div>
 
-      <div className={styles.explore}>
+      <button
+        className={styles.explore}
+        onClick={() => openModal(content)}
+      >
         Explore
-      </div>
+      </button>
 
     </div>
   );
