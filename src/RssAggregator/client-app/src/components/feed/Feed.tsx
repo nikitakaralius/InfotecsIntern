@@ -16,12 +16,18 @@ const Feed = () => {
       setModal(true);
   }
 
+  const hideModal = () => setModal(false);
+
   if (articles.content.length == 0)
     return <div></div>
 
   return (
     <div className={styles.container}>
-      <ArticleModal article={article!} show={modal} />
+      <ArticleModal
+        article={article!}
+        show={modal}
+        hide={hideModal}
+      />
       <div className={styles.heading}>
         Feed
       </div>

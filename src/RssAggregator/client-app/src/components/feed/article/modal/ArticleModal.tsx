@@ -1,13 +1,15 @@
 import React from 'react';
 import styles from './ArticleModal.module.scss';
 import {IPrimitiveArticle} from '../../../../domain';
+import {Hide} from '@chakra-ui/react';
 
 interface IArticleModalProps {
   article: IPrimitiveArticle;
   show: boolean;
+  hide: () => void;
 }
 
-const ArticleModal = ({article, show}: IArticleModalProps) => {
+const ArticleModal = ({article, show, hide}: IArticleModalProps) => {
   if (!show)
     return <div></div>
 
@@ -18,7 +20,7 @@ const ArticleModal = ({article, show}: IArticleModalProps) => {
         <div>{article.pubDate}</div>
         <div>{article.description}</div>
         <div>
-          <button>Go back</button>
+          <button onClick={hide}>Go back</button>
           <a href={article.link} target="_blank">Read</a>
         </div>
       </div>
