@@ -8,8 +8,14 @@
 }
 
 .link {
-  color: $accent-color;
+  text-decoration: none;
+  color: $primary-color;
   font-weight: 450;
+}
+
+.link:hover {
+  color: $accent-color;
+  transition: color 0.2s;
 }
 
 .title {

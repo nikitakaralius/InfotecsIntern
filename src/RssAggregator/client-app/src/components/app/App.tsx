@@ -8,10 +8,12 @@ import {useConfig} from '../../hooks';
 const App = () => {
   useConfig();
   return (
-    <div className={styles.grid}>
+    <div>
       <Header />
-      <Feed />
-      <StreamList />
+      <div className={styles.grid}>
+        <Feed />
+        <StreamList />
+      </div>
     </div>
   );
 };
