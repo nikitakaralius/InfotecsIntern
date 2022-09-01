@@ -4,9 +4,10 @@ import styles from './Article.module.scss';
 
 interface IArticleProps {
   content: IPrimitiveArticle;
+  onExploreClick: (article: IPrimitiveArticle) => void;
 }
 
-const Article = ({content}: IArticleProps) => {
+const Article = ({content, onExploreClick}: IArticleProps) => {
   return (
     <div className={styles.container}>
 
@@ -16,7 +17,9 @@ const Article = ({content}: IArticleProps) => {
         </a>
       </div>
 
-      <button>Explore</button>
+      <button onClick={() => onExploreClick(content)}>
+        Explore
+      </button>
 
     </div>
   );
