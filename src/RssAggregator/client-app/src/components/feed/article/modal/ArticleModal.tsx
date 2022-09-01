@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './ArticleModal.module.scss';
 import {IPrimitiveArticle} from '../../../../domain';
-import {Hide} from '@chakra-ui/react';
 
 interface IArticleModalProps {
   article: IPrimitiveArticle;

@@ -23,14 +23,14 @@ const Feed = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.heading}>
+        Feed
+      </div>
       <ArticleModal
         article={article!}
         show={modal}
         hide={hideModal}
       />
-      <div className={styles.heading}>
-        Feed
-      </div>
       <div className={styles.list}>
         {
           articles.content.map(a =>
