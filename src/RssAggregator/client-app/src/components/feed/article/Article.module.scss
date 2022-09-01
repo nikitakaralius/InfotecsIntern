@@ -23,11 +23,20 @@
 }
 
 .explore {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  padding: 5px 0 5px 0;
+  border-radius: 10px;
+  margin-left: 5px;
+  height: 40px;
+  min-width: fit-content;
+  background: $secondary-color;
+  color: $primary-color;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.explore:hover {
+  color: $background-color;
+  transition: color 0.3s;
 }
 
 .date {

@@ -16,6 +16,11 @@ const Article = ({content, onExploreClick}: IArticleProps) => {
         </a>
         <div className={styles.date}>{content.pubDate}</div>
       </div>
+      <div>
+        <button onClick={() => onExploreClick(content)} className={styles.explore}>
+          Explore
+        </button>
+      </div>
     </div>
   );
 };
