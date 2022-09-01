@@ -20,4 +20,4 @@ const Modal = ({children, open}: IModalProps) => {
   );
 };
 
-export default Modal;
+export  {Modal};
