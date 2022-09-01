@@ -14,7 +14,13 @@ const ArticleModal = ({article, show}: IArticleModalProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        {article.description}
+        <div>{article.title}</div>
+        <div>{article.pubDate}</div>
+        <div>{article.description}</div>
+        <div>
+          <button>Go back</button>
+          <a href={article.link} target="_blank">Read</a>
+        </div>
       </div>
     </div>
   );
