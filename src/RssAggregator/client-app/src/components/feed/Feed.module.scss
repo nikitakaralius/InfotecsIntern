@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.container {
+  grid-area: feed;
+  @media (min-width: $min-width) {
+    padding: 0 0 0 10px;
+  }
+  padding: 0 10px 0 10px;
+}
+
+.heading {
+  margin-top: 20px;
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.list {
+  margin-top: 20px;
+  padding: 10px;
+}

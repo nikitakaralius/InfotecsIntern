@@ -1,0 +1,62 @@
+@import '../../../styles/variables';
+
+.container {
+  background: $background-color;
+  padding: 30px;
+  border-radius: 20px;
+  overflow-y: auto;
+  @media (min-width: $min-width) {
+    width: 50vw;
+    height: fit-content;
+  }
+  width: 75vw;
+  min-height: fit-content;
+  max-height: 75vh;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.date {
+  font-size: 20px;
+  font-style: italic;
+  opacity: 75%;
+  margin-bottom: 5px;
+}
+
+.description {
+  overflow-wrap: break-word;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  float: right;
+}
+
+.backButton {
+  background-color: $danger-color;
+  color: $primary-color;
+  margin-right: 10px;
+}
+
+.readButton {
+  background-color: $secondary-color;
+  color: $primary-color;
+  text-decoration: none;
+}
+
+.backButton, .readButton {
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 450;
+}
+
+.backButton:hover, .readButton:hover {
+  color: $background-color;
+  transition: color 0.2s;
+}

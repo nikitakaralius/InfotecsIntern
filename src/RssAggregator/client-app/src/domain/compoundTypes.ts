@@ -1,35 +1,134 @@
-import {String50, String100} from './simpleTypes';
+import {activeStreamFilter, articleComparer, streamEquality, String100, String250} from './index';
 
-export interface IFeedItem {
-  title: String50;
-  description: String100;
+interface IProxy {
+  host: string;
+  port: number;
+  protocol: string;
+  auth: {
+    username: string;
+    password: string;
+  };
+}
+
+interface ISettingsStorage {
+  updateStepSeconds: number;
+  proxy: IProxy | null;
+}
+
+interface IArticle {
+  title: String100;
+  description: string;
   link: URL;
   pubDate: Date;
 }
 
-export interface IActiveFeedStream {
-  title: String50;
-  link: URL;
+interface IEnabledFeedStream {
+  title: string;
+  link: string;
+  active: true;
 }
 
-export interface IInactiveFeedStream {
-  title: String50;
-  link: URL;
+interface IDisabledFeedStream {
+  title: string;
+  link: string;
+  active: false;
 }
 
-export interface INewFeedStream {
-  link: URL;
+interface INewFeedStream {
+  link: string;
 }
 
-export type IFeedStream = IActiveFeedStream | IInactiveFeedStream;
+type FeedStream = IEnabledFeedStream | IDisabledFeedStream;
 
-export type SortedFeed = IFeedItem[];
+type FeedSource = IEnabledFeedStream[];
 
-export type FeedSource = IFeedStream[];
+class StreamStorage {
+  streams: FeedStream[];
+  source: IEnabledFeedStream[];
 
-export interface IProxy {
-  host: URL;
-  port: number;
-  username: string;
-  password: string;
+  private constructor(streams: FeedStream[], source: IEnabledFeedStream[]) {
+    this.streams = streams;
+    this.source = source;
+  }
+
+  static create(streams: FeedStream[]) {
+    const unique = streams.filter((value, index) => streams.indexOf(value) === index);
+    const source = unique.filter(activeStreamFilter);
+    return new StreamStorage(unique, source);
+  }
+
+  static empty() {
+    return new StreamStorage([], []);
+  }
+
+  getStreams(): FeedStream[] {
+    return this.streams;
+  }
+
+  getSource(): FeedSource {
+    return this.source;
+  }
+
+  enable(stream: IDisabledFeedStream) {
+    const index = this.streams.findIndex(s => streamEquality(s, stream));
+    if (index === -1) return;
+    this.streams[index] = {
+      title: stream.title,
+      link: stream.link,
+      active: true
+    };
+    this.source.push(this.streams[index] as IEnabledFeedStream);
+  }
+
+  disable(stream: IEnabledFeedStream) {
+    const index = this.streams.findIndex(s => streamEquality(s, stream));
+    if (index === -1) return;
+    this.streams[index] = {
+      title: stream.title,
+      link: stream.link,
+      active: false
+    };
+    this.source = this.source.filter(s => !streamEquality(s, stream));
+  }
+
+  append(stream: IEnabledFeedStream) {
+    const index = this.streams.findIndex(s => streamEquality(s, stream));
+    if (index !== -1) return;
+    this.streams.push(stream);
+    this.source.push(stream);
+  }
+
+  remove(stream: FeedStream) {
+    this.streams = this.streams.filter(s => !streamEquality(s, stream));
+    this.source = this.source.filter(s => !streamEquality(s, stream));
+  }
 }
+
+class SortedFeed {
+  readonly content: IArticle[];
+
+  private constructor(feed: IArticle[]) {
+    this.content = feed;
+  }
+
+  static create(feed: IArticle[]) {
+    feed.sort(articleComparer);
+    return new SortedFeed(feed);
+  }
+
+  static empty() {
+    return new SortedFeed([]);
+  }
+}
+
+export {SortedFeed, StreamStorage};
+export type {
+  IProxy,
+  IArticle,
+  FeedSource,
+  FeedStream,
+  IEnabledFeedStream,
+  IDisabledFeedStream,
+  INewFeedStream,
+  ISettingsStorage
+};

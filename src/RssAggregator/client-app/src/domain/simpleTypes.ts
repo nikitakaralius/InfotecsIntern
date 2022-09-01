@@ -1,9 +1,10 @@
-const createClamped = <T>(content: string, n: number, constructor: (content: string) => T) => {
-  const clamped = content.substring(0, 100) + '...';
-  return constructor(clamped);
+const createClamped = <T>(content: string, symbols: number, constructor: (_: string) => T) => {
+  return content.length <= symbols
+    ? constructor(content)
+    : constructor(content.substring(0, symbols - 3) + '...');
 };
 
-export class String50 {
+class String100 {
   readonly content: string;
 
   private constructor(content: string) {
@@ -11,11 +12,11 @@ export class String50 {
   }
 
   static createClamped(content: string) {
-    return createClamped<String100>(content, 50, c => new String50(c));
+    return createClamped(content, 100, c => new String100(c));
   }
 }
 
-export class String100 {
+class String250 {
   readonly content: string;
 
   private constructor(content: string) {
@@ -23,8 +24,8 @@ export class String100 {
   }
 
   static createClamped(content: string) {
-    return createClamped<String100>(content, 100, c => new String100(c));
+    return createClamped(content, 250, c => new String250(c));
   }
 }
 
-export type ConnectionStatus = 'Success' | 'Failure';
+export {String100, String250};

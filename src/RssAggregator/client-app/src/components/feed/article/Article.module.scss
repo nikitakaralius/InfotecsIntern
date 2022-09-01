@@ -1,0 +1,46 @@
+@import '../../../styles/variables';
+
+.container {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 125px;
+  grid-gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: $primary-color;
+  font-weight: 450;
+}
+
+.link:hover {
+  color: $accent-color;
+  transition: color 0.2s;
+}
+
+.title {
+  padding: 5px;
+}
+
+.explore {
+  border-radius: 10px;
+  margin-left: 5px;
+  height: 40px;
+  min-width: fit-content;
+  background: $secondary-color;
+  color: $primary-color;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.explore:hover {
+  color: $background-color;
+  transition: color 0.3s;
+}
+
+.date {
+  margin-top: 5px;
+  font-size: 18px;
+  font-style: italic;
+}

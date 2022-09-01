@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+
+.grid {
+  display: grid;
+
+  grid-template-areas:
+  "streams"
+  "feed";
+
+  grid-gap: 10px;
+
+  @media (min-width: $min-width) {
+    grid-template-areas:
+    "feed streams";
+    grid-template-columns: 75% 1fr;
+    grid-gap: 10px;
+    padding: 50px;
+  }
+
+  z-index: 1;
+  padding: 10px;
+}
