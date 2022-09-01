@@ -13,7 +13,7 @@ const Modal = ({children, open}: IModalProps) => {
     <>
       <div className={styles.overlay}/>
       <div className={styles.content}>
-        {children}
+          {children}
       </div>
     </>,
     document.getElementById('modal')!
