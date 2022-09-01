@@ -16,9 +16,15 @@ const ArticleModal = ({article, onClose, open}: IArticleModalProps) => {
   return (
     <Modal open={open}>
       <div className={styles.container}>
-        <div>{article.title}</div>
-        <div>{article.pubDate}</div>
-        <div className={styles.description}>{article.description}</div>
+        <div className={styles.title}>
+          {article.title}
+        </div>
+        <div className={styles.date}>
+          {article.pubDate}
+        </div>
+        <div className={styles.description}>
+          {article.description}
+        </div>
         <div>
           <button onClick={onClose}>Go back</button>
           <Button>Read more</Button>

@@ -7,11 +7,27 @@
   overflow-y: auto;
   @media (min-width: $min-width) {
     width: 50vw;
+    height: fit-content;
   }
   width: 75vw;
-  height: 75vh;
+  min-height: fit-content;
+  max-height: 75vh;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.date {
+  font-size: 20px;
+  font-style: italic;
+  opacity: 75%;
+  margin-bottom: 5px;
 }
 
 .description {
   overflow-wrap: break-word;
+  margin-bottom: 20px;
 }
