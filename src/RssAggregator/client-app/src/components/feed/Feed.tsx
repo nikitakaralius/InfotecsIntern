@@ -29,7 +29,7 @@ const Feed = () => {
     <div className={styles.container}>
       <ArticleModal article={article} open={isOpen} onClose={closeModal} />
       <div className={styles.heading}>
-        Feed
+        POSTS
       </div>
       <div className={styles.list}>
         {

@@ -13,8 +13,9 @@ const Article = ({content, onExploreClick}: IArticleProps) => {
 
       <div className={styles.title}>
         <a href={content.link} target="_blank" className={styles.link}>
-          {content.title} <span className={styles.date}>{content.pubDate}</span>
+          {content.title}
         </a>
+        <div className={styles.date}>{content.pubDate}</div>
       </div>
 
       <button onClick={() => onExploreClick(content)}>

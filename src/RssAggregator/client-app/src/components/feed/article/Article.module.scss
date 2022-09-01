@@ -1,20 +1,15 @@
 @import '../../../styles/variables';
 
 .container {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: 1fr 125px;
   grid-gap: 10px;
 }
 
 .link {
-  text-decoration: none;
-  color: $primary-color;
-}
-
-.title, .explore {
-  border: 3px solid $primary-color;
-  border-radius: 10px;
+  color: $accent-color;
+  font-weight: 450;
 }
 
 .title {
@@ -30,7 +25,7 @@
 }
 
 .date {
-  margin-right: auto;
+  margin-top: 5px;
   font-size: 18px;
   font-style: italic;
 }
