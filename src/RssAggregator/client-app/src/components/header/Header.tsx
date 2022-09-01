@@ -11,7 +11,7 @@ const Header = () => {
         </div>
         <RssForm />
         <div className={styles.example}>
-          Example: https://ru.hexlet.io/lessons.rss
+          Example: https://rss.nytimes.com/services/xml/rss/nyt/Europe.xml
         </div>
       </div>
     </header>
